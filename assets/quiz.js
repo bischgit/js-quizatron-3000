@@ -1,4 +1,4 @@
-// Var with array and object for questions 
+// variable for questions array
 var questions = [
     {
         title: "Commonly used data types DO NOT include:",
@@ -27,3 +27,38 @@ var questions = [
     },
 
 ];
+
+// variable declaration
+var score = 0;
+var questionIndex = 0;
+var currentTime = document.querySelector("#currentTime");
+var timer = document.querySelector("#startTime");
+var questionsDiv = document.querySelector("#questionsDiv");
+var wrapper = document.querySelector("#wrapper");
+
+// seconds left is 15 seconds per question:
+var secondsLeft = 76;
+// holds interval time
+var holdInterval = 0;
+// holds penalty time
+var penalty = 10;
+// creates new element
+var ulCreate = document.createElement("ul");
+
+// triggers timer on button, shows user a display on the screen
+timer.addEventListener("click", function () {
+    // we are checking zero because its originally set to zero
+    if (holdInterval === 0) {
+        holdInterval = setInterval(function () {
+            secondsLeft--;
+            currentTime.textContent = "Time: " + secondsLeft;
+
+            if (secondsLeft <= 0) {
+                clearInterval(holdInterval);
+                allDone();
+                currentTime.textContent = "Time's up!";
+            }
+        }, 1000);
+    }
+    render(questionIndex);
+});
