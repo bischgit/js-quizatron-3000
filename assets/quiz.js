@@ -65,7 +65,7 @@ timer.addEventListener("click", function () {
 
 // renders questions and choices to page: 
 function render(questionIndex) {
-    // Clears existing data 
+    // clears existing data 
     questionsDiv.innerHTML = "";
     ulCreate.innerHTML = "";
     // for loops to loop through all info in array
@@ -191,7 +191,7 @@ function allDone() {
             allScores.push(finalScore);
             var newScore = JSON.stringify(allScores);
             localStorage.setItem("allScores", newScore);
-            // Travels to final page
+            // travels to final page
             window.location.replace("./highscores.html");
         }
     });
